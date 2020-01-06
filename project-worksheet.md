@@ -3,57 +3,50 @@
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This is a remake of the game "Solitaire". It uses an external API for card information and images and uses this date to replicate the classical table-top game we all know and love.
 
 ## Project Links
 
-- [github repo]()
+- [https://git.generalassemb.ly/KJFreys1/project-2]()
 - [deployment]()
 
 ## Wireframes
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 
-- [wireframes]()
+- [https://docs.google.com/drawings/d/1tzUNoerIn4hL4Ir4ngrA0y9HhLIz0D0M1hx8u5q2z8k/edit?hl=en]()
 - [react architecture]()
 
-
-
-Define the the React components and the architectural design of your app.
+App: Refers to other components and manages styling.
+Title: Creates a title page with instructions and path to start games.
+Game Board: Container for main game components:
+- Table: Area where Aces and other played cards are stored.
+- Game: Displays cards to be interacted with.
+- Score: Displays current score plus timer.
+- Deck: Holds interactable deck that display 3 cards at a time to be played.
 
 ### MVP/PostMVP - 5min
 
 The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP EXAMPLE
-- Find and use external api 
-- Render data on page 
-- Allow user to interact with the page
+- Fetch external API
+- Display cards on screen
+- Allow user to move cards to a correct location
 
 #### PostMVP EXAMPLE
 
-- Add localStorage or firebase for storage
-
-## Components
-##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
-
-Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components. 
-
-| Component | Description | 
-| --- | :---: |  
-| App | This will make the initial data pull and include React Router| 
-| Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
+- Add winning mechanism
+- Add styling
 
 ## Time Frames
 
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
-
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Setting up API| H | 1hrs| / | / |
+| Functionality | H | 3hrs| / | / |
+| Styling | H | 2hrs| / | / |
+| Total | H | /| / | / |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
