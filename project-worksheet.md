@@ -14,7 +14,7 @@ This is a remake of the game "Solitaire". It uses an external API for card infor
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 
-- [https://docs.google.com/drawings/d/1tzUNoerIn4hL4Ir4ngrA0y9HhLIz0D0M1hx8u5q2z8k/edit?hl=en]()
+- [https://docs.google.com/drawings/d/1tzUNoerIn4hL4Ir4ngrA0y9HhLIz0D0M1hx8u5q2z8k/edit?usp=sharing]()
 - [react architecture]()
 
 App: Refers to other components and manages styling.
@@ -43,10 +43,10 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Setting up API| H | 1hrs| / | / |
-| Functionality | H | 3hrs| / | / |
-| Styling | H | 2hrs| / | / |
-| Total | H | /| / | / |
+| Setting up API| H | 2hrs| / | / |
+| Functionality | H | 16hrs| / | / |
+| Styling | H | 10hrs| / | / |
+| Total | H | / | / | / |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
