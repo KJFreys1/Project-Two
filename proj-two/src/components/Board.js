@@ -8,7 +8,10 @@ export default class Board extends React.Component {
     render() {
         return(
             <div className='board'>
-                <Columns columns={this.props.columns} />
+                <Columns 
+                    columns={this.props.columns} 
+                    onMove={this.props.onMove}
+                />
             </div>
         )
     }

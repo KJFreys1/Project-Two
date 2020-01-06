@@ -45,13 +45,34 @@ class App extends React.Component {
     })
   }
 
+  handleMove = (cOne, cTwo) => {
+    let columns = this.state.columns
+    columns.forEach(arr => {
+      const length = arr.length
+      if (arr[length-1] == cOne) {
+        arr.pop()
+      } else if (arr[length-1] == cTwo) {
+        arr.push(cOne)
+      }
+      return arr
+    })
+    console.log(columns)
+    this.setState({
+      columns: columns
+    })
+  }
+
   render() {
     console.log(this.state.columns)
     console.log(this.state.cards)
     if (this.state.retrieved) {
       return (
         <div>
-          <Board onDraw={this.handleDraw} columns={this.state.columns}/>
+          <Board 
+            onDraw={this.handleDraw} 
+            columns={this.state.columns}
+            onMove={this.handleMove}
+          />
         </div>
       )
     } else {

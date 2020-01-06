@@ -21,21 +21,25 @@ export default class Columns extends React.Component {
         let cardOne = parseInt(this.state.cardSelected.value, 10)
         let cardTwo = parseInt(card.value, 10)
         if (cardTwo - cardOne === 1) {
-            console.log('success')
+            this.props.onMove(this.state.cardSelected, card)
+            this.setState({
+                cardSelected: 'empty'
+            })
         }
     }
 
     render() {
         console.log(this.state.cardSelected)
         let last = false
-        let index = 0
+        let index = -1
         const colms = this.props.columns.map(arr => {
+            let colLength = arr.length - 1
+            index++
             return (
                 <div className='column'>
                     {arr.map((card, i) => {
-                        if (i === index) {
+                        if (i >= index || i === colLength) {
                             last = true
-                            index++
                         } else {
                             last = false
                         }
