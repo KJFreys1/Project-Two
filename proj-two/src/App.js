@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 import Board from './components/Board'
 
-URL = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-
+URL = 'https://deckofcardsapi.com/api/deck/new/draw/?count=52'
 class App extends React.Component {
   constructor() {
     super()
@@ -16,12 +15,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=52`).then(res => res.json()).then(res => {
+    fetch(URL).then(res => res.json()).then(res => {
       this.setState({
         deck: res,
         id: res.deck_id,
         retrieved: true,
-        cards: res.cards
+        cards: res.cards,
       })
     })
   }
@@ -47,16 +46,30 @@ class App extends React.Component {
 
   handleMove = (cOne, cTwo) => {
     let columns = this.state.columns
+    let movedCards = []
     columns.forEach(arr => {
-      const length = arr.length
-      if (arr[length-1] == cOne) {
-        arr.pop()
-      } else if (arr[length-1] == cTwo) {
-        arr.push(cOne)
+      let faceUp = false
+      arr.forEach(card => {
+        if (card === cOne) {
+          faceUp = true
+        }
+        if (faceUp === true) {
+          movedCards.push(card)
+        }
+      })
+      if (faceUp) {
+        for (let i = 0; i < movedCards.length; i++) {
+          arr.pop()
+        }
       }
-      return arr
     })
-    console.log(columns)
+    columns.forEach(arr => {
+      if (arr[arr.length-1] == cTwo) {
+        movedCards.forEach(cards => {
+          arr.push(cards)
+        })
+      }
+    })
     this.setState({
       columns: columns
     })

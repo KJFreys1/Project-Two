@@ -11,7 +11,14 @@ export default class Card extends React.Component {
 
     onHighlight = () => {
         if (this.props.selected != 'empty') {
-            this.props.onCheck(this.props.card)
+            if (this.state.isHighlight === 'highlight') {
+                this.setState({
+                    isHighlight: ''
+                })
+                this.props.onUnselect()
+            } else {
+                this.props.onCheck(this.props.card)
+            }
         } else {
             this.setState({
                 isHighlight: 'highlight'
