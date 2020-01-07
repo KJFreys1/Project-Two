@@ -8,6 +8,10 @@
     display: inline;
 }
 
+.column-container {
+    width: 800px;
+}
+
 .column {
     margin: 120px 5px auto 5px;
     display: inline-flex;

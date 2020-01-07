@@ -65,6 +65,7 @@ export default class Columns extends React.Component {
     render() {
         console.log(this.state.cardSelected)
         let last = false
+        let canBeSelected = false
         const colms = this.props.columns.map((arr, x) => {
             return (
                 <div className='column'>
@@ -77,9 +78,15 @@ export default class Columns extends React.Component {
                         } else {
                             last = false
                         }
+                        if (i === arr.length-1) {
+                            canBeSelected = true
+                        } else {
+                            canBeSelected = false
+                        }
                         return (
                             <Card 
                                 card={card} 
+                                canBeSelected = {canBeSelected}
                                 isLast={last}
                                 selected={this.state.cardSelected} 
                                 onGet={this.handleGetValue}
@@ -92,7 +99,9 @@ export default class Columns extends React.Component {
             )
         })
         return(
-            <h1>{colms}</h1>
+            <div className='column-container'>
+                <div>{colms}</div>
+            </div>
         )
     }
 }
