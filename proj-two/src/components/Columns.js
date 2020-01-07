@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+import Deck from './Deck'
 let col = [0, 1, 2, 3, 4, 5, 6]
 
 export default class Columns extends React.Component {
@@ -7,8 +8,7 @@ export default class Columns extends React.Component {
         super(props)
 
         this.state = {
-            cardSelected: 'empty',
-            faceUp: [[],[],[],[],[],[],[]]
+            cardSelected: 'empty'
         }
     }
 
@@ -68,40 +68,51 @@ export default class Columns extends React.Component {
         let canBeSelected = false
         const colms = this.props.columns.map((arr, x) => {
             return (
-                <div className='column'>
-                    {arr.map((card, i) => {
-                        if (arr.length < col[x] + 1) {
-                            col[x] = arr.length - 1
-                        }
-                        if (i >= col[x]) {
-                            last = true
-                        } else {
-                            last = false
-                        }
-                        if (i === arr.length-1) {
-                            canBeSelected = true
-                        } else {
-                            canBeSelected = false
-                        }
-                        return (
-                            <Card 
-                                card={card} 
-                                canBeSelected = {canBeSelected}
-                                isLast={last}
-                                selected={this.state.cardSelected} 
-                                onGet={this.handleGetValue}
-                                onUnselect={this.handleUnselect} 
-                                onCheck={this.handleCheckValue}
-                            />
-                        )
-                    })}
-                </div>
+                    <div className='column'>
+                        {arr.map((card, i) => {
+                            if (arr.length < col[x] + 1) {
+                                col[x] = arr.length - 1
+                            }
+                            if (i >= col[x]) {
+                                last = true
+                            } else {
+                                last = false
+                            }
+                            if (i === arr.length-1) {
+                                canBeSelected = true
+                            } else {
+                                canBeSelected = false
+                            }
+                            return (
+                                <Card 
+                                    card={card} 
+                                    canBeSelected = {canBeSelected}
+                                    isLast={last}
+                                    selected={this.state.cardSelected} 
+                                    onGet={this.handleGetValue}
+                                    onUnselect={this.handleUnselect} 
+                                    onCheck={this.handleCheckValue}
+                                    onBoard={true}
+                                />
+                            )
+                        })}
+                    </div>
             )
         })
         return(
-            <div className='column-container'>
-                <div>{colms}</div>
-            </div>
+            <>
+                <Deck 
+                    cardsShown={this.props.cardsShown}
+                    passShow={this.props.passShow}
+                    cards={this.props.cards}
+                    selected={this.state.cardSelected}
+                    onGet={this.handleGetValue}
+                    onUnselect={this.handleUnselect} 
+                />
+                <div className='column-container'>
+                    <div>{colms}</div>
+                </div>
+            </>
         )
     }
 }

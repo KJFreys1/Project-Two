@@ -17,7 +17,7 @@ export default class Card extends React.Component {
                 })
                 this.props.onUnselect()
             } else {
-                if (this.props.canBeSelected) {
+                if (this.props.canBeSelected && this.props.onBoard) {
                     this.props.onCheck(this.props.card)
                 }
             }

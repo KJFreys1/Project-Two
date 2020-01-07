@@ -10,7 +10,9 @@ class App extends React.Component {
     this.state = {
       deck: {},
       retrieved: false,
-      columns: []
+      columns: [],
+      show: [],
+      cardsShown: 0
     }
   }
 
@@ -22,6 +24,14 @@ class App extends React.Component {
         retrieved: true,
         cards: res.cards,
       })
+    })
+  }
+
+  passShow = (show, cards, idx) => {
+    this.setState({
+      show: show,
+      cards: cards,
+      cardsShown: idx
     })
   }
 
@@ -43,10 +53,12 @@ class App extends React.Component {
       cards: cards
     })
   }
-
+//cOne moves, cTwo stays
   handleMove = (cOne, cTwo) => {
-    let columns = this.state.columns
-    let movedCards = []
+    console.log('moving')
+    const columns = this.state.columns
+    const show = this.state.show
+    const movedCards = []
     columns.forEach(arr => {
       let faceUp = false
       arr.forEach(card => {
@@ -63,28 +75,43 @@ class App extends React.Component {
         }
       }
     })
+    let cardsShown = this.state.cardsShown
+    if (show[cardsShown - 1] === cOne) {
+      console.log('success')
+      movedCards.push(show[cardsShown - 1])
+      show.splice(cardsShown - 1, 1)
+      cardsShown--
+    }
     columns.forEach(arr => {
-      if (arr[arr.length-1] == cTwo) {
+      if (arr[arr.length-1] === cTwo) {
         movedCards.forEach(cards => {
           arr.push(cards)
         })
       }
     })
     this.setState({
-      columns: columns
+      columns: columns,
+      show: show,
+      cardsShown: cardsShown
     })
   }
 
   render() {
-    console.log(this.state.columns)
+    console.log('deck left: ')
     console.log(this.state.cards)
+    console.log('cards shown: ')
+    console.log(this.state.show)
+    console.log(this.state.cardsShown)
     if (this.state.retrieved) {
       return (
         <div>
           <Board 
+            cardsShown={this.state.cardsShown}
+            passShow={this.passShow}
             onDraw={this.handleDraw} 
             columns={this.state.columns}
             onMove={this.handleMove}
+            cards={this.state.cards}
           />
         </div>
       )
