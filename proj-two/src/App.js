@@ -82,8 +82,8 @@ class App extends React.Component {
       show.splice(cardsShown - 1, 1)
       cardsShown--
     }
-    columns.forEach(arr => {
-      if (arr[arr.length-1] === cTwo) {
+    columns.forEach((arr, i) => {
+      if (arr[arr.length-1] === cTwo || i === cTwo) {
         movedCards.forEach(cards => {
           arr.push(cards)
         })

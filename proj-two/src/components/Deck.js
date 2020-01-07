@@ -62,9 +62,16 @@ export default class Deck extends React.Component {
                     />
                 )
             })
+        let empty = 'hide'
+        let hide = ''
+        if (this.state.cards.length === 0) {
+            hide = 'hide'
+            empty = ''
+        }
         return (
             <div className='deck'>
-                <img className='deck-cards' src='cardback.png' onClick={this.handleFlip}></img>
+                <img className={hide + ' deck-cards'} src='cardback.png' onClick={this.handleFlip}></img>
+                <div className={empty + ' empty-deck'} onClick={this.handleFlip}></div>
                 <div>
                     {showCards}
                 </div>

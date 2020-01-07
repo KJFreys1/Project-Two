@@ -62,12 +62,24 @@ export default class Columns extends React.Component {
         }
     }
 
+    checkKing = (idx) => {
+        if (this.state.cardSelected.value === 'KING') {
+            this.props.onMove(this.state.cardSelected, idx)
+            this.handleUnselect()
+        }
+    }
+
     render() {
         console.log(this.state.cardSelected)
         let last = false
         let canBeSelected = false
         const colms = this.props.columns.map((arr, x) => {
+            let hide = 'hide'
+            if (arr.length === 0) {
+                hide = ''
+            }
             return (
+                <>
                     <div className='column'>
                         {arr.map((card, i) => {
                             if (arr.length < col[x] + 1) {
@@ -97,6 +109,8 @@ export default class Columns extends React.Component {
                             )
                         })}
                     </div>
+                    <div className={hide + ' empty-col'} onClick={()=>this.checkKing(x)}></div>
+                </>
             )
         })
         return(

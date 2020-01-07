@@ -18,11 +18,33 @@
     height: 500px;
 }
 
+.empty-col {
+    height: 148px;
+    width: 98px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 25px 5px auto -105px;
+    display: inline-block;
+}
+
+.empty-deck {
+    height: 148px;
+    width: 98px;
+    margin: 25px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
 .column {
-    margin: 120px 5px auto 5px;
+    z-index: 100;
+    margin: 145px 5px auto 5px;
     display: inline-flex;
     flex-direction: column;
     width: 100px;
+}
+
+.hide {
+    display: none;
 }
 
 .highlight {
