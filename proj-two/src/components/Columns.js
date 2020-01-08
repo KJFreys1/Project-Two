@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import Deck from './Deck'
+import Table from './Table'
 let col = [0, 1, 2, 3, 4, 5, 6]
 
 export default class Columns extends React.Component {
@@ -26,6 +27,8 @@ export default class Columns extends React.Component {
 
     handleCheckValue = (card) => {
         console.log('checking')
+        console.log(card)
+        console.log(this.state.cardSelected)
         let cardOne
         let cardTwo
         if (this.state.cardSelected.value === 'JACK' | this.state.cardSelected.value === 'QUEEN' || this.state.cardSelected.value === 'KING' || this.state.cardSelected.value === 'ACE') {
@@ -73,6 +76,12 @@ export default class Columns extends React.Component {
         if (this.state.cardSelected.value === 'KING') {
             this.props.onMove(this.state.cardSelected, idx)
             this.handleUnselect()
+        }
+    }
+
+    checkAce = () => {
+        if (this.state.cardSelected.value === 'ACE') {
+
         }
     }
 
@@ -133,6 +142,11 @@ export default class Columns extends React.Component {
                 <div className='column-container'>
                     <div>{colms}</div>
                 </div>
+                <Table 
+                    cardSelected={this.state.cardSelected}
+                    onMove={this.props.onMove}
+                    onUnselect={this.handleUnselect}
+                />
             </>
         )
     }

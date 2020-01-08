@@ -18,7 +18,6 @@ export default class Board extends React.Component {
                     onMove={this.props.onMove}
                     cards={this.props.cards}
                 />
-                <div className='table'></div>
             </div>
         )
     }

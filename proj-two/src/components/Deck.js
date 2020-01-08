@@ -73,7 +73,7 @@ export default class Deck extends React.Component {
             <div className='deck'>
                 <img className={hide + ' deck-cards'} src='cardback.png' onClick={this.handleFlip}></img>
                 <div className={empty + ' empty-deck'} onClick={this.handleFlip}></div>
-                <div>
+                <div className='deck-container'>
                     {showCards}
                 </div>
             </div>
