@@ -55,10 +55,17 @@ export default class Columns extends React.Component {
             cardTwo = parseInt(card.value, 10)
         }
         if (cardTwo - cardOne === 1) {
-            this.props.onMove(this.state.cardSelected, card)
-            this.setState({
-                cardSelected: 'empty'
-            })
+            if ((this.state.cardSelected.suit === 'DIAMONDS' || this.state.cardSelected.suit === 'HEARTS') && (card.suit === 'CLUBS' || card.suit ==='SPADES')) {
+                this.props.onMove(this.state.cardSelected, card)
+                this.setState({
+                    cardSelected: 'empty'
+                })
+            } else if ((this.state.cardSelected.suit === 'CLUBS' || this.state.cardSelected.suit === 'SPADES') && (card.suit === 'HEARTS' || card.suit ==='DIAMONDS')) {
+                this.props.onMove(this.state.cardSelected, card)
+                this.setState({
+                    cardSelected: 'empty'
+                })
+            }
         }
     }
 

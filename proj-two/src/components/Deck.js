@@ -12,6 +12,7 @@ export default class Deck extends React.Component {
     }
 
     handleFlip = () => {
+        this.props.onUnselect()
         const cards = this.state.cards
         const show = this.state.show
         const length = cards.length
@@ -25,14 +26,12 @@ export default class Deck extends React.Component {
             }
             this.setState({
                 cards: cards,
-                show: show,
-                showMore: true 
+                show: show 
             })
         } else {
             this.setState({
                 cards: show,
-                show: [],
-                showMore: true
+                show: []
             })
         }
         console.log('idx' + idx)
@@ -42,19 +41,21 @@ export default class Deck extends React.Component {
     render () {
         console.log('in deck show: ')
         console.log(this.state.show)
+        let canBeSelected = false
             const showThree = []
             for (let i = 0; i < this.props.cardsShown && i < this.state.show.length; i++) {
                 showThree.push(this.state.show[i])
             }
             const showCards = showThree.map((card, idx) => {
-                let canBeSelected = true
-                let last = true
                 console.log(idx)
+                if (idx === this.props.cardsShown - 1) {
+                    canBeSelected = true
+                }
                 return (
                     <Card 
                         card={card}
                         canBeSelected = {canBeSelected}
-                        isLast={last}
+                        isLast={true}
                         selected={this.props.selected} 
                         onGet={this.props.onGet}
                         onUnselect={this.props.onUnselect} 

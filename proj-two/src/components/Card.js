@@ -21,7 +21,7 @@ export default class Card extends React.Component {
                     this.props.onCheck(this.props.card)
                 }
             }
-        } else {
+        } else if (this.props.onBoard || this.props.canBeSelected){
             this.setState({
                 isHighlight: 'highlight'
             })
@@ -30,6 +30,11 @@ export default class Card extends React.Component {
     }
 
     render() {
+        if (this.props.selected != this.props.card && this.state.isHighlight === 'highlight') {
+            this.setState({
+                isHighlight: ''
+            })
+        }
         if (this.props.isLast) {
             return (
                 <img 
