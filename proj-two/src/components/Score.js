@@ -69,7 +69,7 @@ export default class Score extends React.Component {
                     </div>
                     <div className='new-deck'>
                         <Link to='/'>
-                            <h1>New Deck</h1>
+                            <h1>Main Menu</h1>
                         </Link>
                     </div>
                 </div>

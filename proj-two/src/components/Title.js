@@ -1,7 +1,5 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
-import App from './App'
-import Instructions from './components/Instructions'
+import { Link} from 'react-router-dom'
 
 export default function Title() {
     return (
@@ -15,9 +13,6 @@ export default function Title() {
                     <div className='instructions'>How To Play</div>
                 </Link>
             </div>
-            <Route path='/' exact component={Title} />
-            <Route path='/game' exact component={App} />
-            <Route path='/instructions' exact component={Instructions} />
         </main>
     )
 }

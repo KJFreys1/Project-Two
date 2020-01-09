@@ -14,6 +14,10 @@ export default class Columns extends React.Component {
         }
     }
 
+    componentDidMount() {
+        col = [0, 1, 2, 3, 4, 5, 6]
+    }
+
     handleGetValue = (card) => {
         this.setState({
             cardSelected: card
