@@ -68,8 +68,8 @@ export default class Score extends React.Component {
                         <h1>Score: {this.props.score}</h1>
                     </div>
                     <div className='new-deck'>
-                        <Link to='/'>
-                            <h1>Main Menu</h1>
+                        <Link to='/' className='link-score'>
+                            <h1>Title Page</h1>
                         </Link>
                     </div>
                 </div>
