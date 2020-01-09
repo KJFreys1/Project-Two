@@ -9,7 +9,8 @@ export default class Columns extends React.Component {
         super(props)
 
         this.state = {
-            cardSelected: 'empty'
+            cardSelected: 'empty',
+            score: 0
         }
     }
 
@@ -79,14 +80,7 @@ export default class Columns extends React.Component {
         }
     }
 
-    checkAce = () => {
-        if (this.state.cardSelected.value === 'ACE') {
-
-        }
-    }
-
     render() {
-        console.log(this.state.cardSelected)
         let last = false
         let canBeSelected = false
         const colms = this.props.columns.map((arr, x) => {
@@ -137,15 +131,19 @@ export default class Columns extends React.Component {
                     cards={this.props.cards}
                     selected={this.state.cardSelected}
                     onGet={this.handleGetValue}
-                    onUnselect={this.handleUnselect} 
+                    onUnselect={this.handleUnselect}
+                    openCards={col}
                 />
                 <div className='column-container'>
-                    <div>{colms}</div>
+                    <div className='column-box'>
+                        <div>{colms}</div>
+                    </div>
                 </div>
                 <Table 
                     cardSelected={this.state.cardSelected}
                     onMove={this.props.onMove}
                     onUnselect={this.handleUnselect}
+                    addScore={this.props.addScore}
                 />
             </>
         )

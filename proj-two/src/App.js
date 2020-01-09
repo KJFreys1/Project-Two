@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Board from './components/Board'
+import { Route } from 'react-router-dom'
 
 URL = 'https://deckofcardsapi.com/api/deck/new/draw/?count=52'
 class App extends React.Component {
@@ -113,6 +114,7 @@ class App extends React.Component {
             onMove={this.handleMove}
             cards={this.state.cards}
           />
+          
         </div>
       )
     } else {

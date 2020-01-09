@@ -34,20 +34,20 @@ export default class Deck extends React.Component {
                 show: []
             })
         }
-        console.log('idx' + idx)
         this.props.passShow(show, cards, idx)
     }
 
+    playerWin = () => {
+        alert('winner')
+    }
+
     render () {
-        console.log('in deck show: ')
-        console.log(this.state.show)
         let canBeSelected = false
             const showThree = []
             for (let i = 0; i < this.props.cardsShown && i < this.state.show.length; i++) {
                 showThree.push(this.state.show[i])
             }
             const showCards = showThree.map((card, idx) => {
-                console.log(idx)
                 if (idx === this.props.cardsShown - 1) {
                     canBeSelected = true
                 }
@@ -68,6 +68,18 @@ export default class Deck extends React.Component {
         if (this.state.cards.length === 0) {
             hide = 'hide'
             empty = ''
+        }
+        let playerWin = true
+        this.props.openCards.forEach(arr => {
+            if (arr != 0) {
+                playerWin = false
+            }
+        })
+        if (this.state.cards.length != 0 || this.state.show.length != 0) {
+            playerWin = false
+        }
+        if (playerWin) {
+            setTimeout(()=>this.playerWin(), 200)
         }
         return (
             <div className='deck'>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from './Card'
 
 export default class Table extends React.Component {
     constructor(props) {
@@ -41,6 +40,7 @@ export default class Table extends React.Component {
                     newCards.push(card)
                     this.props.onMove(card, null)
                     this.props.onUnselect()
+                    this.props.addScore()
                     this.setState({
                         [suit]: newSuit,
                         [arr]: newCards
@@ -55,25 +55,31 @@ export default class Table extends React.Component {
         if (this.state.hearts === 0) {
             hearts = <div className='empty-cell' onClick={()=>this.handleClick('hearts', 'heartCards')}>hearts</div>
         } else {
-            hearts = <img className='empty-cell' src={this.state.heartCards[this.state.heartCards.length-1].image} onClick={()=>this.handleClick('hearts', 'heartCards')}></img>
+            hearts = <img className='cell' src={this.state.heartCards[this.state.heartCards.length-1].image} onClick={()=>this.handleClick('hearts', 'heartCards')}></img>
         }
         let diamonds
         if (this.state.diamonds === 0) {
             diamonds = <div className='empty-cell' onClick={()=>this.handleClick('diamonds', 'diamondCards')}>diamonds</div>
         } else {
-            diamonds = <img className='empty-cell' src={this.state.diamondCards[this.state.diamondCards.length-1].image} onClick={()=>this.handleClick('diamonds', 'diamondCards')}></img>
+            diamonds = <img className='cell' src={this.state.diamondCards[this.state.diamondCards.length-1].image} onClick={()=>this.handleClick('diamonds', 'diamondCards')}></img>
         }
         let spades
         if (this.state.spades === 0) {
             spades = <div className='empty-cell' onClick={()=>this.handleClick('spades', 'spadeCards')}>spades</div>
         } else {
-            spades = <img className='empty-cell' src={this.state.spadeCards[this.state.spadeCards.length-1].image} onClick={()=>this.handleClick('spades', 'spadeCards')}></img>
+            spades = <img className='cell' src={this.state.spadeCards[this.state.spadeCards.length-1].image} onClick={()=>this.handleClick('spades', 'spadeCards')}></img>
         }
         let clubs
         if (this.state.clubs === 0) {
             clubs = <div className='empty-cell' onClick={()=>this.handleClick('clubs', 'clubCards')}>clubs</div>
         } else {
-            clubs = <img className='empty-cell' src={this.state.clubCards[this.state.clubCards.length-1].image} onClick={()=>this.handleClick('clubs', 'clubCards')}></img>
+            clubs = <img className='cell' src={this.state.clubCards[this.state.clubCards.length-1].image} onClick={()=>this.handleClick('clubs', 'clubCards')}></img>
+        }
+        if (this.state.hearts === 13 && this.state.diamonds === 13 && this.state.spades === 13 && this.state.clubs === 13) {
+            console.log('WINNER')
+            return (
+                <h1>YOU WIN</h1>
+            )
         }
         return (
             <div className='table'>
