@@ -61,8 +61,6 @@ export default class Score extends React.Component {
                 <div className='score-flex'>
                     <div className='timer'>
                         <h1>Time: {this.state.display}</h1>
-                        {/* <button onClick={this.stopTimer}>Pause</button>
-                        <button onClick={this.restartTimer}>Play</button> */}
                     </div>
                     <div className='score-box'>
                         <h1>Score: {this.props.score}</h1>

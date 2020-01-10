@@ -58,7 +58,6 @@ export default class Board extends React.Component {
       }
     //cOne moves, cTwo stays
       handleMove = (cOne, cTwo) => {
-        console.log('moving')
         const columns = this.state.columns
         const show = this.state.show
         const movedCards = []
@@ -80,7 +79,6 @@ export default class Board extends React.Component {
         })
         let cardsShown = this.state.cardsShown
         if (show[cardsShown - 1] === cOne) {
-          console.log('success')
           movedCards.push(show[cardsShown - 1])
           show.splice(cardsShown - 1, 1)
           cardsShown--

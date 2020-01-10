@@ -5,8 +5,7 @@ import Title from './components/Title'
 import Instructions from './components/Instructions'
 import { Route } from 'react-router-dom'
 
-class App extends React.Component {
-  render() {
+function App() {
       return (
         <main>
           <Route path='/' exact component={Title} />
@@ -14,7 +13,6 @@ class App extends React.Component {
           <Route path='/instructions' component={Instructions} />
         </main>
       )
-  }
 }
 
 export default App;

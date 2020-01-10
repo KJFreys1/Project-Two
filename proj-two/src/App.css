@@ -141,6 +141,8 @@ body {
     margin: 50px 25px 0 25px;
     border: 1px solid white;
     border-radius: 4px;
+    text-align: center;
+    line-height: 148px;
 }
 
 .link {

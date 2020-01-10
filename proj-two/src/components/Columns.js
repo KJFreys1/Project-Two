@@ -31,9 +31,6 @@ export default class Columns extends React.Component {
     }
 
     handleCheckValue = (card) => {
-        console.log('checking')
-        console.log(card)
-        console.log(this.state.cardSelected)
         let cardOne
         let cardTwo
         if (this.state.cardSelected.value === 'JACK' | this.state.cardSelected.value === 'QUEEN' || this.state.cardSelected.value === 'KING' || this.state.cardSelected.value === 'ACE') {

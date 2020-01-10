@@ -76,7 +76,6 @@ export default class Table extends React.Component {
             clubs = <img className='cell' src={this.state.clubCards[this.state.clubCards.length-1].image} onClick={()=>this.handleClick('clubs', 'clubCards')}></img>
         }
         if (this.state.hearts === 13 && this.state.diamonds === 13 && this.state.spades === 13 && this.state.clubs === 13) {
-            console.log('WINNER')
             return (
                 <h1>YOU WIN</h1>
             )
