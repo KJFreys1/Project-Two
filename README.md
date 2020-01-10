@@ -1,125 +1,68 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 2: React
-#### Overview
+# Project Overview
 
-Let's kick it up a notch and build a modular and modern front end application using React!
 
-Like with project one, the Unit 2 project is a chance to be creative and build something you should be proud of. You will be working individually for this project, but we'll be guiding you along the process and helping as you go. 
+## Project Description
 
-You must submit your idea to your squad leader by noon EST Monday.
+This is a remake of the game "Solitaire". It uses an external API for card information and images and uses this date to replicate the classical table-top game we all know and love.
 
-Show us what you've got!
+## Project Links
 
-## Requirements
+- [GitHub](https://git.generalassemb.ly/KJFreys1/project-2)
+- [deployment](https://thirsty-tereshkova-fcfa2a.netlify.com)
 
-#### Your website must:
-- Be a working, interactive, React application.
-- Include data from a third-party API.
-    - Pull data into the application using an API  
-        [List of Public APIs](https://github.com/toddmotto/public-apis)  
-        [More APIs](https://github.com/abhishekbanthia/Public-APIs)  
-	[Instructor Recommended APIs](https://git.generalassemb.ly/sei-nyc-pirates/apis)
-    - TRY OUT your API in the browser by making an fetch request before you get too emotionally invested in it, to make sure it works the way you think it does...**YOU ARE REQUIRED TO SHOW US YOU CAN RECEIVE THE DATA FOR YOUR PROPOSAL**
-- Use React Router.
-- Have at least 6 separate components, using a readable file structure.
-- Be built using Create React App.
-- Be styled with CSS.
-- Use Flexbox or CSS Grid for layouts.
-- Use functional components and class components appropriately.
-- Be deployed via [Netlify](https://www.netlify.com/).
+## Wireframes
 
-- **Optionally, you may incorporate a component library to design your app with approval, or use Next.js or Gatsby instead of React Router and Create React App**
+- [wireframe](https://docs.google.com/drawings/d/1tzUNoerIn4hL4Ir4ngrA0y9HhLIz0D0M1hx8u5q2z8k/edit?usp=sharing)
 
-#### Your code must:
+App: Refers to other components and manages styling:
+- Title: Creates a title page with instructions and path to start games:
+	- Instructions: Explain the rules and how to play the game.
+	- Board: Container for main game components as well as any functions/state shared by multiple child components:
+		- Score: Displays current score plus timer.
+		- Columns: Holds shared code for Deck and Table:
+			- Deck: Holds interactable deck that display 3 cards at a time to be played.
+			- Table: Allows player to place Aces from Deck or Column to score points.
+			- Card: Holds the information (image, suit, value) for the specific card called on or needed by parent and sibling components.
 
-- Be properly indented.  
-- Be written with semantic, camelCase JavaScript variable names.  
-- Be written with kebab-case (dashes) CSS class names.  
-- Contain no `console.log()` or commented out code in final version.  
-- Use only React for DOM manipulation.  
-- No pre-loaded `create-react-app` files or code.
+### MVP/PostMVP  
 
-## Necessary Deliverables
-#### A README with the following:
+#### MVP EXAMPLE
+- Fetch external API
+- Display cards on screen
+- Allow user to move cards to a correct location
 
-**Refer to the [project worksheet](/project-worksheet.md) file in this repo for structuring your README.**
+#### PostMVP EXAMPLE
 
-###### For the proposal:
-- A collection of wireframes - hand-drawn or digitally created - outlining the important pages of your site, as well as the critical states of your project, drawing a component hierarchy would be a great way to indicate which components need state and which components need props.
-- A proposal including:
-	- A description of the project you'll be building with the objective described in non-technical language.
-	- An explanation of the major problems you plan to face while implementing this app.
-	- An explanation of how you foresee yourself solving the aforementioned problems.
-	- A visual of your component hierarchy.  
-	- A link to the API you plan to use.  
-	- A section clearly defining MVP and POST MVP.
-	- If you plan on incorporating a component library, include a link in your proposal.
+- Add winning mechanism
+- Add styling
 
-#### For the project:
-- A git repository hosted on GitHub, with a link to your hosted project, and **frequent** commits dating back to the very beginning of the project (YOUR APP SHOULD BE LOCATED IN A SEPARATE STANDING REPO. DO NOT build your app in this repository. YOU MUST initiate a new repo on your GitHub account.) 
+## Time Frames
 
-<hr>
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Setting up API | H | 2hrs| ~30min | ~30min |
+| Functionality | H | 16hrs| ~20hrs | ~20hrs |
+| Styling | H | 10hrs| ~10hrs | ~10hrs |
+| Total | H | 28hrs | ~31hrs | ~31hrs |
 
-## Tips
+## Code Snippet
 
-* **Commit early, commit often.**  Don't be afraid to break something because you can always go back in time to a previous version.
+This bit of code allowed me to have a clean looking timer present in the Score component that modelled other classic stopwatch formats. An example of this is "3:31.4" for 3 minutes, 31 seconds, and 4/10s of a second. It also keeps a 0 as a placeholder to keep its look. For example, it would show "1:03.0" rather than "1:3".
 
-## Planning
+```
+let newTimer = Math.round(this.state.timer * 10 + 1) / 10
+if (newTimer < 10) {
+    space = '0'
+}
+if (newTimer % 1 === 0) {
+    newTimer = newTimer + '.0'
+}
+if (newTimer === '60.0') {
+    minute += 1
+    newTimer = '0.0'
+}
+```
 
-1. [Watch this video on the Minimum Viable Product](https://www.youtube.com/watch?v=1FoCbbbcYT8)
+## Issues and Resolutions
 
-2. **Begin with the end in mind**. Spend a dedicated block of time to planning with ***wireframes*** and ***user stories*** so you don't waste time building things you don't need.
-3. **Write pseudocode before you write actual code**. Thinking through the logic of something helps streamline your process.
-4. **User stories define what a specific type of user wants to accomplish with your application**. It's tempting to just use your list of user stories as a ***todo list***, but try to avoid this. If you keep your user stories small and focused on what a user cares about being able to do. This will help you prioritize your tasks and which features to build first.
-
-> [Definition of User Stories](https://www.mountaingoatsoftware.com/agile/user-stories)
-
-## Building Out from your Plan
-
-After planning your app: 
-
-1. Create your React architecture
-2. Build your Components
-3. Decided on your CSS styling.
-3. Add new features!
-
-## Getting Unstuck
-
-* **Don't hesitate to write messy code to solve short-term problems**&mdash;***Refactor later***
-* **Read the docs for whatever technologies you use**. The docs often include a tutorial that can help you get started, and learning to read documentation is crucial to your success as a developer.
-
-## Asking For Help
-
-### In-person Support
-
-Each student will be given 5 (five) tokens, redeemable at any time during regular
-class and Study Hall time (not including evening Office hours), for 20 minutes
-with an instructor. Tokens cannot be transferred between students - there is no
-black market for tokens.
-
-Instructors will not be holding open office hours during project week. This is
-to give you the opportunity to solve issues and errors you run in to on your own
-and with your classmates. Dan, however, will still hold his office hours as planned.
-
-An instructor will be assigned to each team and wil check in with your team
-every morning for about 15 minutes. The purpose of these check-ins is not to
-discuss technical questions, but to answer questions about workflow and get a status checkin.
-
-#### Maximizing Effectiveness of Support Sessions
-
-Prior to using one of your tokens, we ***strongly recommend*** that you file an issue on this repository in order to both provide the instructor with a point of reference regarding your code and the issue you are having. This will enable us to give you more effective guidance.
-
-When you submit an issue please include the following:
-
-  1. A code snippet
-  2. A precise and specific description of your issue
-  3. What error you got
-  4. What you already tried to resolve your error and the result of those attempts
-
-> [Check here for details on this process](https://github.com/ga-dc/wdi12/blob/master/asking-for-help.md#during-project-weeks).
-
-We also strongly recommend **using Slack to get help from your classmates**. Chances are you all will be running into similar problems.
-
-## A Note on Plagiarism
-
-Take a moment to re-familiarize yourself with the [plagiarism policy](https://git.generalassemb.ly/seir-1118/Administrative/blob/master/plagiarism.md), specifically on using work you find online and on work you do with other students.
-
+Syntactical issues were not present during the making of this project. However,I did run into several complications with manipulation of state through sibling components (ie. moving a card from the Deck component over to the Table or Columns component). The solution to this was refractoring my code, moving state and functions up to the parent component (Board) to be maniuplated and then passed back down to the child components.

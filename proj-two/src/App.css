@@ -79,8 +79,8 @@ body {
 }
 
 .timer {
-    width: 200px;
-    margin: auto 50px auto 250px;
+    width: 250px;
+    margin: auto 50px auto 225px;
 }
 
 .score-box {
@@ -90,7 +90,7 @@ body {
 
 .new-deck {
     width: 200px;
-    margin: auto 250px auto 50px;
+    margin: auto 225px auto 50px;
 }
 
 .new-deck:hover {

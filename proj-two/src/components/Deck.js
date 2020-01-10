@@ -37,10 +37,6 @@ export default class Deck extends React.Component {
         this.props.passShow(show, cards, idx)
     }
 
-    playerWin = () => {
-        alert('winner')
-    }
-
     render () {
         let canBeSelected = false
             const showThree = []
@@ -77,9 +73,6 @@ export default class Deck extends React.Component {
         })
         if (this.state.cards.length != 0 || this.state.show.length != 0) {
             playerWin = false
-        }
-        if (playerWin) {
-            setTimeout(()=>this.playerWin(), 200)
         }
         return (
             <div className='deck'>
