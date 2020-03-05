@@ -7,7 +7,6 @@ This is a remake of the game "Solitaire". It uses an external API for card infor
 
 ## Project Links
 
-- [GitHub](https://git.generalassemb.ly/KJFreys1/project-2)
 - [deployment](https://thirsty-tereshkova-fcfa2a.netlify.com)
 
 ## Wireframes
@@ -65,4 +64,4 @@ if (newTimer === '60.0') {
 
 ## Issues and Resolutions
 
-Syntactical issues were not present during the making of this project. However,I did run into several complications with manipulation of state through sibling components (ie. moving a card from the Deck component over to the Table or Columns component). The solution to this was refractoring my code, moving state and functions up to the parent component (Board) to be maniuplated and then passed back down to the child components.
+Syntactical issues were not present during the making of this project. However, I did run into several complications with manipulation of state through sibling components (ie. moving a card from the Deck component over to the Table or Columns component). The solution to this was refractoring my code, moving state and functions up to the parent component (Board) to be maniuplated and then passed back down to the child components.
